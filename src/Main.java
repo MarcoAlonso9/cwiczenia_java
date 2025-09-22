@@ -8,6 +8,9 @@ public class Main {
         System.out.println(czyPierwsza(23)); //true
         System.out.println(czyPierwsza(25)); //false
         System.out.println(czyPierwsza(24)); //false
+
+        System.out.println(ileDzielnikowMaLiczba(12));
+        System.out.println(ileDzielnikowMaLiczba(1));
     }
 
     private static int suma(int a, int b){
@@ -66,5 +69,39 @@ public class Main {
             }
         }
         return true;
+    }
+
+    /**
+     * @param liczba
+     * @return
+     */
+    private static int ileDzielnikowMaLiczba(int liczba){
+        int licznikDzielnikow = 0;
+        for (int i = 0; i <= Math.sqrt(liczba); i++) {
+            if (liczba % i == 0){
+                if (i == liczba / i){
+                    licznikDzielnikow++;
+                    break;
+                }else{
+                   licznikDzielnikow = licznikDzielnikow +2;
+                }
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * Zwraca nwd metodą euklidesa
+     * @param a pierwsza liczba >= a
+     * @param b
+     * @return
+     */
+    private static int nwd(int a, int b){
+        while (b!=0){
+            int reszta = a%b;
+            a=b;
+            b=reszta;
+        }
+        return a;
     }
 }
