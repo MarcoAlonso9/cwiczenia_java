@@ -12,12 +12,11 @@ public class Main {
         System.out.println(ileDzielnikowMaLiczba(12));
         System.out.println(ileDzielnikowMaLiczba(1));
         System.out.println(silnia(20));
-        long liczba = 922337203685477808L;
-        int n = 1;
-        while (liczba>0){
-            n++;
-        }
-        System.out.println(n);
+        System.out.println(potega(2,3));
+        System.out.println(potega(2,-3));
+        System.out.println(zamienZDziesietnegoNaSystem(6,2));
+        System.out.println(zamienZDziesietnegoNaSystem(171,16));
+
     }
 
     private static int suma(int a, int b){
@@ -120,8 +119,9 @@ public class Main {
         //5! = 1+2+3+4+5
         long wynikSilnia = 1;
         for (int i = 2; i < n; i++) {
-            wynikSilnia
+            wynikSilnia*=1;
         }
+        return wynikSilnia;
     }
 
     /**
@@ -156,5 +156,21 @@ public class Main {
             k--;
         }
         return true;
+    }
+
+    private static String zamienZDziesietnegoNaSystem(int liczba, int system){
+        String wynik = "";
+        int cyfra;
+        while (liczba>0){
+            cyfra = liczba%system;
+            if (cyfra>9){
+                cyfra = cyfra + 55;
+                wynik = (char)cyfra + wynik;
+            }else {
+                wynik = cyfra + wynik;
+            }
+            liczba = liczba/system;
+        }
+        return wynik;
     }
 }
